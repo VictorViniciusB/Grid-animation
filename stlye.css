@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bc-body: #ffffff;
+  --bc-header: #8e9aaf;
+  --bc-main: #eff1ff;
+  --bc-figcaption: #feeafa;
+
+  --ff-header: 'Staatliches', cursive;
+  --ff-main: 'Palanquin', sans-serif;
+  --ff-header2: 'Roboto', sans-serif;
+
+  --fc-header: #ffffff;
+  --fc-main: #23053a;
+  --fc-figcaption: #4a4e69;
+}
+
+body {
+  background-color: var(--bc-main);
+
+  display: grid;
+  grid-template-areas:
+    "header main"
+    "header footer";
+  grid-template-columns: 37.7rem auto;
+  grid-template-rows: auto 7.4rem;
+}
+
+header {
+  background-color: var(--bc-header);
+  grid-area: header;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header img {
+  height: 16.7rem;
+  margin: 3.2rem auto;
+}
+
+header h1 {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-header);
+  font-weight: 400;
+  font-size: 4rem;
+  letter-spacing: 0.05em;
+  color: var(--fc-header);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+header p {
+  width: 27.5rem;
+  height: 27.4rem;
+  margin: 3.2rem 5.1rem auto 5.1rem;
+  color: var(--bc-body);
+  text-align: center;
+  font-family: var(--ff-header2);
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+main {
+  margin: 6.4rem auto 1.8rem;
+}
+
+main .grid {
+  margin: 0rem 8.1rem 5rem 9.8rem;
+  display: grid;
+  gap: 3.2rem;
+  grid-template-areas: "img1 img2 img3";
+  place-items: center;
+  align-items: start;
+}
+
+.par {
+  display: flex;
+  flex-direction: column;
+}
+
+.ice {
+  max-width: 22rem;
+  position: relative;
+  animation-name: ice-cream-downTop;
+  animation-duration: 1s;
+}
+
+.ice img {
+  border-radius: 2rem;
+  max-width: 22rem;
+  margin-bottom: 3.2rem;
+}
+
+.ice figcaption {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  background-color: var(--bc-figcaption);
+  border-radius: 2rem;
+  width: 11.2rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fc-figcaption);
+  font-family: var(--ff-header);
+  font-weight: 400;
+  font-size: 2rem;
+  text-transform: uppercase;
+  animation-name: ice-cream-topDown;
+  animation-duration: 1.8s;
+}
+
+footer {
+  margin: 0 auto 4.6rem;
+}
+footer p,
+footer a {
+  font-family: var(--ff-main);
+  font-weight: 400;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #4a4e69;
+}
+footer a {
+  text-decoration: none;
+  font-weight: 600;
+}
+footer a:hover {
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes ice-cream-downTop {
+  0% {
+    opacity: 0;
+    transform: translateY(5.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes ice-cream-topDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@media (max-width: 1000px) {
+  main .grid {
+    grid-template-areas: "img1 img2 ";
+  }
+  header {
+    height: 100%;
+  }
+}
+
+@media (max-width: 990px) {
+  main .grid {
+    grid-template-areas: "img1 ";
+  }
+  main .grid {
+    margin: 0rem 4.1rem 3rem 4.1rem;
+  }
+  main {
+    margin-top: 5rem;
+  }
+}
